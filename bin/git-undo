@@ -1,0 +1,20 @@
+#!/bin/bash
+
+##
+## git-undo
+## ========
+##
+## Undo changes to files in the working directory.
+##
+
+filenames="$@"
+if [ -z "$filenames" ]
+then
+    # Undo changes to all files.
+    filenames=$(git diff --name-only)
+fi
+
+for filename in "$filenames"
+do
+    git checkout -- "$filename"
+done
