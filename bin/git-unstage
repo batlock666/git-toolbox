@@ -1,0 +1,20 @@
+#!/bin/bash
+
+##
+## git-unstage
+## ===========
+##
+## Remove files from the cache.
+##
+
+filenames="$@"
+if [ -z "$filenames" ]
+then
+    # Remove all files from the cache.
+    filenames=$(git diff --cached --name-only)
+fi
+
+for filename in "$filenames"
+do
+    git reset HEAD "$filename"
+done
