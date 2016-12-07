@@ -1,0 +1,21 @@
+#!/bin/bash
+
+##
+## git-pushall
+## ===========
+##
+## Push all branches and tags to a remote.
+##
+
+remote="$1"
+
+if [[ -z "$remote" ]]
+then
+    # Push all branches and tags to origin.
+    git push --all
+    git push --tags
+else
+    # Push all branches and tags to the given remote.
+    git push --all "$remote"
+    git push --tags "$remote"
+fi
