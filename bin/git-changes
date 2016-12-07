@@ -1,0 +1,19 @@
+#!/bin/bash
+
+##
+## git-changes
+## ===========
+##
+## Display the changes in a commit.
+##
+
+commit="$1"
+
+if [[ -z "$commit" ]]
+then
+    # Display the changes in the latest commit.
+    git diff HEAD^ HEAD
+else
+    # Display the changes in the given commit.
+    git diff "$commit"^ "$commit"
+fi
