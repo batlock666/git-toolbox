@@ -8,7 +8,8 @@
 ##
 
 filenames="$@"
-if [ -z "$filenames" ]
+
+if [[ -z "$filenames" ]]
 then
     # Undo changes to all files.
     filenames=$(git diff --name-only)

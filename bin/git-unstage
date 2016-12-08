@@ -8,7 +8,8 @@
 ##
 
 filenames="$@"
-if [ -z "$filenames" ]
+
+if [[ -z "$filenames" ]]
 then
     # Remove all files from the cache.
     filenames=$(git diff --cached --name-only)
